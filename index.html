@@ -695,8 +695,8 @@
                 <img src="dina.jpg.jpeg" alt="Engr. Dina Marie J. Booc">
             </div>
             <div class="about-text glass-card" style="padding: 2.2rem;">
-                <h3 class="brand-font" style="color: #ffffff; margin-bottom: 0.8rem;">Engr. Dina Marie J. Booc</h3>
-                <p style="color: #ffd700; margin-bottom: 1rem;"><strong>Cum Laude Computer Engineering Graduate | Professional Makeup Artist | Beauty Content Creator</strong></p>
+                <h3 class="brand-font" style="color: #ffffff; margin-bottom: 0.8rem;">Dina Marie </h3>
+                <p style="color: #ffd700; margin-bottom: 1rem;"><strong>BS in Computer Engineering | Professional Makeup Artist | Beauty Content Creator</strong></p>
                 <p>Welcome to ETHEREAL BEAUTY CO.! I blend technical precision, analytical attention to skin details, and high-end aesthetics to enhance your natural beauty. Based in Sudlon, Lahug, Cebu City, I specialize in long-lasting, skin-like finish glam suited for tropical climates and high-definition photography.</p>
                 <br>
                 <p>Whether you need a timeless bridal aesthetic, a sharp graduation look, or radiant event glam, my curated product kit and sanitary standards guarantee an unforgettable transformation.</p>
@@ -728,7 +728,8 @@
             <div class="portfolio-item glass-card" data-category="formal" onclick="openLightbox('client1.jpg.jpeg', 'Filipiniana Heritage Glam - Gold & Champagne Theme')">
                 <img src="client1.jpg.jpeg" alt="Filipiniana Glam Look 1">
                 <div class="portfolio-overlay">
-                    <h4>Formal Event Glam</h4>
+                    <h4>Filipiniana Heritage Glam</h4>
+                    <p>Soft glowing skin with gold embroidered terno styling</p>
                 </div>
             </div>
 
@@ -737,7 +738,7 @@
                 <img src="client2.jpg.jpeg" alt="Formal Glam Look 2">
                 <div class="portfolio-overlay">
                     <h4>Formal Event Glam</h4>
-                    
+                    <p>Radiant bronze contours with elegant silk bow accent</p>
                 </div>
             </div>
 
@@ -745,8 +746,8 @@
             <div class="portfolio-item glass-card" data-category="formal" onclick="openLightbox('client3.jpg.jpeg', 'Formal Glam - Pastel Blue Filipiniana')">
                 <img src="client3.jpg.jpeg" alt="Formal Glam Look 3">
                 <div class="portfolio-overlay">
-                    <h4>Formal Event Glam</h4>
-                    
+                    <h4>Filipiniana & Formal Glam</h4>
+                    <p>Soft pink eye glam paired with light blue organza terno</p>
                 </div>
             </div>
         </div>
@@ -1133,41 +1134,35 @@
 
     <!-- JavaScript Logic -->
     <script>
+        <!-- JavaScript Logic -->
+    <script>
+        // --- GOOGLE SHEETS INTEGRATION ---
+        const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwcH2CcSOtlM8VDIlhFwcfUFsKxAnXnAkU4IpT_HAwzeeVKkRNg7p0VRl7DyWZLtaa2sg/exec";
+
+        async function sendToGoogleSheet(payload) {
+          try {
+            await fetch(GOOGLE_SHEET_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+          } catch (err) {
+            console.error('Error sending data to Google Sheet:', err);
+          }
+        }
+
         let currentStep = 1;
         const totalSteps = 5;
 
-        const initialReviews = [
-            {
-                id: 1,
-                name: "Maria Santos",
-                service: "Bridal Makeup Package",
-                rating: 5,
-                message: "Engr. Dina was incredible! My bridal makeup lasted from 5 AM prep until late night reception without melting. Super precise and gentle!",
-                date: "2026-03-15",
-                approved: true
-            },
-            {
-                id: 2,
-                name: "Bea Alonzo",
-                service: "Formal Glam Makeup",
-                rating: 5,
-                message: "Loved the glam look for my graduation gala. Skin looked airbrushed and ultra glowing in pictures!",
-                date: "2026-03-28",
-                approved: true
-            },
-            {
-                id: 3,
-                name: "Charmaine Ruiz",
-                service: "Filipiniana Heritage Makeup",
-                rating: 5,
-                message: "Very professional artist! She catered to my sensitive skin seamlessly.",
-                date: "2026-04-02",
-                approved: true
-            }
-        ];
+        let bookings = JSON.parse(localStorage.getItem('eb_bookings')) || [];
+        let reviews = JSON.parse(localStorage.getItem('eb_reviews')) || [];
+
+        let currentStep = 1;
+        const totalSteps = 5;
 
         let bookings = JSON.parse(localStorage.getItem('eb_bookings')) || [];
-        let reviews = JSON.parse(localStorage.getItem('eb_reviews')) || initialReviews;
+        let reviews = JSON.parse(localStorage.getItem('eb_reviews')) || [];
 
         document.addEventListener('DOMContentLoaded', () => {
             renderPublicReviews();
@@ -1560,13 +1555,7 @@
             }
         }
     </script>
-    <!-- Footer -->
-    <footer>
-        <p class="brand-font" style="font-size: 1.2rem; margin-bottom: 0.5rem; color: #ffffff;">ETHEREAL BEAUTY CO. by Dina Marie</p>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">Owned & Operated by Engr. Dina Marie J. Booc | Sudlon, Lahug, Cebu City</p>
-        <p style="font-size: 0.8rem; margin-top: 1rem; color: #888;">&copy; 2026 ETHEREAL BEAUTY CO. All Rights Reserved.</p>
-    </footer>
-
+    
     <!-- ADD THE SCRIPT RIGHT HERE -->
     <script>
         // Disable right-click context menu
