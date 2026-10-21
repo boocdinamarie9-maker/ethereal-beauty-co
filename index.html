@@ -1067,7 +1067,7 @@
 
             <!-- Admin Login View -->
             <div id="adminLoginView">
-                <p>Enter 4-digit Security PIN (Default: 1234):</p>
+                <p>Enter 4-digit Security PIN :</p>
                 <input type="password" id="adminPin" class="form-control" style="max-width: 200px; margin: 1rem 0;" maxlength="4">
                 <button class="btn-primary" onclick="verifyAdminPin()">Unlock Dashboard</button>
             </div>
@@ -1445,7 +1445,7 @@
 
         function verifyAdminPin() {
             const pin = document.getElementById('adminPin').value;
-            if (pin === '1234') {
+            if (pin === '8304') {
                 document.getElementById('adminLoginView').style.display = 'none';
                 document.getElementById('adminDashboardView').style.display = 'block';
                 renderAdminTables();
