@@ -1561,5 +1561,38 @@
             }
         }
     </script>
+    <!-- Footer -->
+    <footer>
+        <p class="brand-font" style="font-size: 1.2rem; margin-bottom: 0.5rem; color: #ffffff;">ETHEREAL BEAUTY CO. by Dina Marie</p>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Owned & Operated by Engr. Dina Marie J. Booc | Sudlon, Lahug, Cebu City</p>
+        <p style="font-size: 0.8rem; margin-top: 1rem; color: #888;">&copy; 2026 ETHEREAL BEAUTY CO. All Rights Reserved.</p>
+    </footer>
+
+    <!-- ADD THE SCRIPT RIGHT HERE -->
+    <script>
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        // Disable common inspect shortcuts (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+        document.addEventListener('keydown', function (e) {
+            if (
+                e.key === 'F12' ||
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j')) ||
+                (e.ctrlKey && (e.key === 'U' || e.key === 'u'))
+            ) {
+                e.preventDefault();
+            }
+        });
+    </script>
+
+    <!-- JavaScript Logic -->
+    <script>
+        let currentStep = 1;
+        // ... rest of your existing JavaScript ...
+    </script>
+</body>
+</html>
 </body>
 </html>
